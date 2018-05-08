@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+</head>
+<body>
+    <h2 th:text="${map.msg}"></h2>
+
+    <li>--------------------> Map循环：
+        <div th:each="mapS:${map}">
+            <div th:text="${mapS}"></div>
+        </div>
+    </li>
+
+    <li>-------------------->list,数组循环：
+        <div th:each="listSub:${list}">
+            <div th:text="${listSub}"></div>
+        </div>
+    </li>
+
+    <li>--------------------> user：
+            <div th:text="${user.id}"></div>
+        <div th:text="${user.username}"></div>
+        <div th:text="${user.psd}"></div>
+    </li>
+    <li>-------------------->users：
+        <div th:each="user : ${users}">
+            <div th:text="${user.id}"></div>
+            <div th:text="${user.username}"></div>
+            <div th:text="${user.psd}"></div>
+        </div>
+    </li>
+
+</body>
+</html>

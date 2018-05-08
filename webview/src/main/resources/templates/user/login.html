@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> 登录</title>
+    <script type="text/javascript"  src="/js/jquery/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<H1>登录页面</H1>
+用户名：<input id="username" name="username" type="text"/>
+
+密码：<input id="psd" name="psd" type="text"/>
+
+<input id="submitBtn" type="button" value="提交"/> <input id = "resetBtn" type="button" value="重置"/>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#submitBtn").click(function(){
+            alert(0);
+            var username = $("#username").val();
+            var psd = $("#psd").val();
+            var url = "http://localhost:8088"+"/login/login"
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {username: username, psd: psd},
+                // dataType: json,
+                success: toIndex
+            })
+        })
+
+        $("#resetBtn").click(function(){
+            alert(1);
+           $("#username").val("");
+            $("#psd").val("");
+        })
+
+        function toIndex(data) {
+            alert(data);
+            var url = "http://localhost:8088";
+            location.href =url;
+        }
+
+    });
+</script>
+
+
+</body>
+</html>
